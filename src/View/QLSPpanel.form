@@ -32,10 +32,8 @@
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="69" max="32767" attributes="0"/>
           </Group>
@@ -81,15 +79,15 @@
                   </Group>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="TF_SDT1" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="TF_ChatLieu" min="-2" pref="256" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="TF_MaKH" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
-                              <Component id="TF_TenKH" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
+                              <Component id="TF_MaSP" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
+                              <Component id="TF_TenSP" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="TF_SDT" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="TF_LoaiSP" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="TF_SDT2" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="TF_TrangThai" min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -102,9 +100,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TF_SDT4" min="-2" pref="223" max="-2" attributes="0"/>
-                              <Component id="TF_SDT3" min="-2" pref="223" max="-2" attributes="0"/>
-                              <Component id="TF_SDT5" min="-2" pref="223" max="-2" attributes="0"/>
+                              <Component id="TF_SoLuong" min="-2" pref="223" max="-2" attributes="0"/>
+                              <Component id="TF_DonGia" min="-2" pref="223" max="-2" attributes="0"/>
+                              <Component id="TF_MauSac" min="-2" pref="223" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="jPanel6" max="32767" attributes="0"/>
@@ -118,7 +116,7 @@
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="TF_SDT6" min="-2" pref="223" max="-2" attributes="0"/>
+                          <Component id="TF_KichThuoc" min="-2" pref="223" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton15" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -137,7 +135,7 @@
                   <EmptySpace pref="11" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TF_MaKH" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="TF_MaSP" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -156,16 +154,16 @@
                                       <Component id="jButton17" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="jButton14" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TF_SDT2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="TF_TrangThai" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -175,12 +173,12 @@
                                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="TF_TenKH" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="TF_TenSP" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TF_SDT3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="TF_DonGia" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -188,13 +186,13 @@
                                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="TF_SDT" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="TF_LoaiSP" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="TF_SDT4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="TF_SoLuong" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                               <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -202,12 +200,12 @@
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TF_SDT1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="TF_ChatLieu" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="TF_SDT5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="TF_MauSac" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -215,7 +213,7 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="TF_SDT6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="TF_KichThuoc" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
@@ -234,14 +232,14 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; s&#x1ea3;n ph&#x1ea9;m :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_TenKH">
+        <Component class="javax.swing.JTextField" name="TF_TenSP">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_TenKHActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_TenSPActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_MaKH">
+        <Component class="javax.swing.JTextField" name="TF_MaSP">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_MaKHActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_MaSPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -260,9 +258,9 @@
             <Property name="text" type="java.lang.String" value="T&#xea;n s&#x1ea3;n ph&#x1ea9;m :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT">
+        <Component class="javax.swing.JTextField" name="TF_LoaiSP">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDTActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_LoaiSPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
@@ -346,9 +344,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="BT_timkh">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\MOB1014\icons\search.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="T&#xec;m"/>
               </Properties>
               <Events>
@@ -359,9 +354,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="jButton13">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\MOB1014\icons\edit.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
           </Properties>
           <Events>
@@ -375,17 +367,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton15">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\MOB1014\icons\add.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton16">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\MOB1014\icons\delete.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
           </Properties>
           <Events>
@@ -421,34 +407,34 @@
             <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT1">
+        <Component class="javax.swing.JTextField" name="TF_ChatLieu">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_ChatLieuActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT2">
+        <Component class="javax.swing.JTextField" name="TF_TrangThai">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_TrangThaiActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT3">
+        <Component class="javax.swing.JTextField" name="TF_DonGia">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_DonGiaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT4">
+        <Component class="javax.swing.JTextField" name="TF_SoLuong">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SoLuongActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT5">
+        <Component class="javax.swing.JTextField" name="TF_MauSac">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_MauSacActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TF_SDT6">
+        <Component class="javax.swing.JTextField" name="TF_KichThuoc">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_SDT6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_KichThuocActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

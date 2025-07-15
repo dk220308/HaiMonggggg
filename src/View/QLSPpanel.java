@@ -4,18 +4,44 @@
  */
 package View;
 
+import DAO.SanPhamDAO;
+import Model.SanPham;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author XPS
  */
-public class QLSP extends javax.swing.JPanel {
+public class QLSPpanel extends javax.swing.JPanel {
+
+    DefaultTableModel tableModel;
+    SanPhamDAO spdao = new SanPhamDAO();
 
     /**
      * Creates new form QLSP
      */
-    public QLSP() {
+    public QLSPpanel() {
         initComponents();
+        initTable();
+        fillTable();
     }
+
+    public void initTable() {
+        String[] cols = new String[]{"Mã SP", "Tên SP", "Loại SP", "Gia", "SoLuong", "MauSac", "KichThuoc", "ChatLieu", "Trạng thái"};
+        tableModel = new DefaultTableModel();
+        tableModel.setColumnIdentifiers(cols);
+        jTable2.setModel(tableModel);
+    }
+
+    public void fillTable() {
+        tableModel.setRowCount(0);
+        for (SanPham sp : spdao.getAll()) {
+            tableModel.addRow(spdao.getRow(sp));
+        }
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,11 +55,11 @@ public class QLSP extends javax.swing.JPanel {
         TF_MaKH4 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        TF_TenKH = new javax.swing.JTextField();
-        TF_MaKH = new javax.swing.JTextField();
+        TF_TenSP = new javax.swing.JTextField();
+        TF_MaSP = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        TF_SDT = new javax.swing.JTextField();
+        TF_LoaiSP = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -49,12 +75,12 @@ public class QLSP extends javax.swing.JPanel {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        TF_SDT1 = new javax.swing.JTextField();
-        TF_SDT2 = new javax.swing.JTextField();
-        TF_SDT3 = new javax.swing.JTextField();
-        TF_SDT4 = new javax.swing.JTextField();
-        TF_SDT5 = new javax.swing.JTextField();
-        TF_SDT6 = new javax.swing.JTextField();
+        TF_ChatLieu = new javax.swing.JTextField();
+        TF_TrangThai = new javax.swing.JTextField();
+        TF_DonGia = new javax.swing.JTextField();
+        TF_SoLuong = new javax.swing.JTextField();
+        TF_MauSac = new javax.swing.JTextField();
+        TF_KichThuoc = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -81,15 +107,15 @@ public class QLSP extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel13.setText("Mã sản phẩm :");
 
-        TF_TenKH.addActionListener(new java.awt.event.ActionListener() {
+        TF_TenSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_TenKHActionPerformed(evt);
+                TF_TenSPActionPerformed(evt);
             }
         });
 
-        TF_MaKH.addActionListener(new java.awt.event.ActionListener() {
+        TF_MaSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_MaKHActionPerformed(evt);
+                TF_MaSPActionPerformed(evt);
             }
         });
 
@@ -99,9 +125,9 @@ public class QLSP extends javax.swing.JPanel {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel21.setText("Tên sản phẩm :");
 
-        TF_SDT.addActionListener(new java.awt.event.ActionListener() {
+        TF_LoaiSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDTActionPerformed(evt);
+                TF_LoaiSPActionPerformed(evt);
             }
         });
 
@@ -125,7 +151,6 @@ public class QLSP extends javax.swing.JPanel {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel25.setText("Mã sản phẩm :");
 
-        BT_timkh.setIcon(new javax.swing.ImageIcon("D:\\MOB1014\\icons\\search.png")); // NOI18N
         BT_timkh.setText("Tìm");
         BT_timkh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +185,6 @@ public class QLSP extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jButton13.setIcon(new javax.swing.ImageIcon("D:\\MOB1014\\icons\\edit.png")); // NOI18N
         jButton13.setText("Sửa");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,10 +194,8 @@ public class QLSP extends javax.swing.JPanel {
 
         jButton14.setText("Làm mới");
 
-        jButton15.setIcon(new javax.swing.ImageIcon("D:\\MOB1014\\icons\\add.png")); // NOI18N
         jButton15.setText("Thêm");
 
-        jButton16.setIcon(new javax.swing.ImageIcon("D:\\MOB1014\\icons\\delete.png")); // NOI18N
         jButton16.setText("Xoá");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,39 +214,39 @@ public class QLSP extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel30.setText("Trạng thái :");
 
-        TF_SDT1.addActionListener(new java.awt.event.ActionListener() {
+        TF_ChatLieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT1ActionPerformed(evt);
+                TF_ChatLieuActionPerformed(evt);
             }
         });
 
-        TF_SDT2.addActionListener(new java.awt.event.ActionListener() {
+        TF_TrangThai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT2ActionPerformed(evt);
+                TF_TrangThaiActionPerformed(evt);
             }
         });
 
-        TF_SDT3.addActionListener(new java.awt.event.ActionListener() {
+        TF_DonGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT3ActionPerformed(evt);
+                TF_DonGiaActionPerformed(evt);
             }
         });
 
-        TF_SDT4.addActionListener(new java.awt.event.ActionListener() {
+        TF_SoLuong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT4ActionPerformed(evt);
+                TF_SoLuongActionPerformed(evt);
             }
         });
 
-        TF_SDT5.addActionListener(new java.awt.event.ActionListener() {
+        TF_MauSac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT5ActionPerformed(evt);
+                TF_MauSacActionPerformed(evt);
             }
         });
 
-        TF_SDT6.addActionListener(new java.awt.event.ActionListener() {
+        TF_KichThuoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_SDT6ActionPerformed(evt);
+                TF_KichThuocActionPerformed(evt);
             }
         });
 
@@ -242,13 +264,13 @@ public class QLSP extends javax.swing.JPanel {
                     .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TF_SDT1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TF_ChatLieu, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TF_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_TenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(TF_SDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(TF_SDT2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TF_MaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_TenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TF_LoaiSP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TF_TrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel23)
@@ -259,9 +281,9 @@ public class QLSP extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TF_SDT4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_SDT3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_SDT5, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TF_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_DonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_MauSac, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -272,7 +294,7 @@ public class QLSP extends javax.swing.JPanel {
                         .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(TF_SDT6, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_KichThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
@@ -287,7 +309,7 @@ public class QLSP extends javax.swing.JPanel {
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(TF_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TF_MaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -302,13 +324,13 @@ public class QLSP extends javax.swing.JPanel {
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16))
+                                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel30)
-                                    .addComponent(TF_SDT2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(TF_TrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -317,33 +339,33 @@ public class QLSP extends javax.swing.JPanel {
                                         .addGap(31, 31, 31)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel21)
-                                            .addComponent(TF_TenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(TF_TenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel23)
-                                        .addComponent(TF_SDT3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(TF_DonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(33, 33, 33)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel14)
-                                            .addComponent(TF_SDT, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(TF_LoaiSP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(TF_SDT4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TF_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel24))))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel29)
-                                    .addComponent(TF_SDT1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(TF_ChatLieu, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(TF_SDT5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TF_MauSac, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel22))
                                 .addGap(31, 31, 31)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TF_SDT6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_KichThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28))
                         .addGap(82, 82, 82))))
         );
@@ -483,9 +505,8 @@ public class QLSP extends javax.swing.JPanel {
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTabbedPane1)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jTabbedPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -503,17 +524,17 @@ public class QLSP extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_TenKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TenKHActionPerformed
+    private void TF_TenSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TenSPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_TenKHActionPerformed
+    }//GEN-LAST:event_TF_TenSPActionPerformed
 
-    private void TF_MaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_MaKHActionPerformed
+    private void TF_MaSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_MaSPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_MaKHActionPerformed
+    }//GEN-LAST:event_TF_MaSPActionPerformed
 
-    private void TF_SDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDTActionPerformed
+    private void TF_LoaiSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LoaiSPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDTActionPerformed
+    }//GEN-LAST:event_TF_LoaiSPActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
@@ -523,29 +544,29 @@ public class QLSP extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void TF_SDT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT1ActionPerformed
+    private void TF_ChatLieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ChatLieuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT1ActionPerformed
+    }//GEN-LAST:event_TF_ChatLieuActionPerformed
 
-    private void TF_SDT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT2ActionPerformed
+    private void TF_TrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TrangThaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT2ActionPerformed
+    }//GEN-LAST:event_TF_TrangThaiActionPerformed
 
-    private void TF_SDT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT3ActionPerformed
+    private void TF_DonGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DonGiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT3ActionPerformed
+    }//GEN-LAST:event_TF_DonGiaActionPerformed
 
-    private void TF_SDT4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT4ActionPerformed
+    private void TF_SoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SoLuongActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT4ActionPerformed
+    }//GEN-LAST:event_TF_SoLuongActionPerformed
 
-    private void TF_SDT5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT5ActionPerformed
+    private void TF_MauSacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_MauSacActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT5ActionPerformed
+    }//GEN-LAST:event_TF_MauSacActionPerformed
 
-    private void TF_SDT6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_SDT6ActionPerformed
+    private void TF_KichThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_KichThuocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_SDT6ActionPerformed
+    }//GEN-LAST:event_TF_KichThuocActionPerformed
 
     private void TF_MaKH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_MaKH3ActionPerformed
         // TODO add your handling code here:
@@ -570,19 +591,19 @@ public class QLSP extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_timkh;
-    private javax.swing.JTextField TF_MaKH;
+    private javax.swing.JTextField TF_ChatLieu;
+    private javax.swing.JTextField TF_DonGia;
+    private javax.swing.JTextField TF_KichThuoc;
+    private javax.swing.JTextField TF_LoaiSP;
     private javax.swing.JTextField TF_MaKH1;
     private javax.swing.JTextField TF_MaKH3;
     private javax.swing.JTextField TF_MaKH4;
     private javax.swing.JTextField TF_MaKH5;
-    private javax.swing.JTextField TF_SDT;
-    private javax.swing.JTextField TF_SDT1;
-    private javax.swing.JTextField TF_SDT2;
-    private javax.swing.JTextField TF_SDT3;
-    private javax.swing.JTextField TF_SDT4;
-    private javax.swing.JTextField TF_SDT5;
-    private javax.swing.JTextField TF_SDT6;
-    private javax.swing.JTextField TF_TenKH;
+    private javax.swing.JTextField TF_MaSP;
+    private javax.swing.JTextField TF_MauSac;
+    private javax.swing.JTextField TF_SoLuong;
+    private javax.swing.JTextField TF_TenSP;
+    private javax.swing.JTextField TF_TrangThai;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;

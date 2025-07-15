@@ -9,7 +9,7 @@ package Model;
  * @author XPS
  */
 public class KhuyenMai {
-    private String maKH;
+    private String maKM;
     private String masp;
     private String tenKm;
     private String ngayBdau;
@@ -21,8 +21,8 @@ public class KhuyenMai {
     public KhuyenMai() {
     }
 
-    public KhuyenMai(String maKH, String masp, String tenKm, String ngayBdau, String ngayKthuc, String loaiSp, float giamgia, String trangThai) {
-        this.maKH = maKH;
+    public KhuyenMai(String maKM, String masp, String tenKm, String ngayBdau, String ngayKthuc, String loaiSp, float giamgia, String trangThai) {
+        this.maKM = maKM;
         this.masp = masp;
         this.tenKm = tenKm;
         this.ngayBdau = ngayBdau;
@@ -32,12 +32,12 @@ public class KhuyenMai {
         this.trangThai = trangThai;
     }
 
-    public String getMaKH() {
-        return maKH;
+    public String getMaKM() {
+        return maKM;
     }
 
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
+    public void setMaKM(String maKM) {
+        this.maKM = maKM;
     }
 
     public String getMasp() {
@@ -96,5 +96,6 @@ public class KhuyenMai {
         this.trangThai = trangThai;
     }
     
-    
+
+
 }
